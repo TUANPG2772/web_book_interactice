@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffdc55">
+  <meta name="description" content="A little color. A lot of imagination. Explore Homepilato Studio's coloring and drawing books, peek inside, and bring a sample page to life.">
+  <meta property="og:title" content="Homepilato Studio — Color outside the ordinary">
+  <meta property="og:description" content="Open a book. Find your happy colors. Try our interactive coloring previews.">
+  <title>Homepilato Studio — Color outside the ordinary</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <a class="brand" href="#/" aria-label="Homepilato Studio home">homepilato<span>STUDIO ✳</span></a>
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#/books">All books</a><a href="#/how-to-draw">How to draw</a><a href="#/activities">Free printables</a><a href="#/about">Our story</a>
+    </nav>
+    <div class="nav-actions"><button id="search-open" class="icon-button" aria-label="Search books">⌕</button><button id="wishlist-open" class="icon-button" aria-label="View wishlist">♡ <span id="wish-count">0</span></button><a class="button dark small" href="#/books">Find your book <span>↗</span></a><button class="icon-button menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Toggle menu">☰</button></div>
+  </header>
+  <main id="main"></main>
+  <footer><div class="footer-top"><a class="brand" href="#/">homepilato<span>SMALL PAGES. BIG POSSIBILITIES.</span></a><p>A little less scrolling.<br>A little more scribbling.</p><div><a href="#/books">Explore books ↗</a><a href="#/activities">Free coloring pages ↗</a><a href="#/about">About the studio ↗</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Homepilato Studio</span><span>Made for curious minds & colorful hearts.</span><a href="#/privacy">Privacy</a></div></footer>
+  <dialog id="preview" aria-labelledby="preview-title"><div class="studio-top"><a class="brand" href="#/">homepilato<span>THE COLORING ROOM</span></a><p id="preview-title"></p><button id="close-preview" class="icon-button" aria-label="Close preview">✕</button></div><div class="studio-body"><aside class="studio-info"><span class="eyebrow">A LITTLE PREVIEW. ALL YOURS.</span><h2>Let your<br>colors wander.</h2><p>Choose a color, then tap a space. There’s no wrong way to make it yours.</p><div class="mode-switch" role="group" aria-label="Preview mode"><button data-mode="color" aria-pressed="true">Try coloring</button><button data-mode="compare" aria-pressed="false">Before / after</button></div><div id="palette" role="group" aria-label="Choose a color"></div><div class="studio-tools"><button id="undo">↶ Undo</button><button id="reset">Reset</button><button id="auto-color">✦ Watch it color</button><button id="download-art">↓ Save artwork</button></div><div id="comparison-control" hidden><label for="comparison">Slide to reveal the color</label><input id="comparison" type="range" min="0" max="100" value="50"></div><p class="small-note">Your coloring is saved on this device.<br>These are original demo pages.</p><a id="preview-detail" class="text-link" href="#/books">Meet the book ↗</a></aside><div class="book-workspace"><div class="spread"><div class="left-page"><span class="eyebrow">HOME PILATO • CREATIVE MOMENTS</span><div id="guide-art"></div><h3 id="page-name"></h3><p>A blank page is just<br>an adventure waiting to happen.</p><span class="page-mark">MAKE A LITTLE MAGIC ✳</span></div><div class="right-page"><div id="coloring-canvas"></div><span class="page-mark" id="page-counter"></span></div></div><div class="page-navigation"><button id="previous-page" aria-label="Previous sample page">←</button><span id="page-status" aria-live="polite"></span><button id="next-page" aria-label="Next sample page">→</button></div></div></div><p class="sr-only" id="color-announcement" aria-live="polite"></p></dialog>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="dialog-top"><h2 id="search-title">Find your next adventure.</h2><button id="search-close" aria-label="Close search">✕</button></div><label for="search-input">Search by title or theme</label><input id="search-input" type="search" placeholder="Try animals, ocean, or drawing…"><div id="search-results"></div></dialog>
+  <div id="toast" role="status"></div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "homepilato-interactive-books",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Homepilato Studio bookstore and region-based interactive coloring experience",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.14.5"
+  }
+}
