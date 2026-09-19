@@ -10,7 +10,7 @@ test('catalog artwork has unique closed-region identifiers and usable SVG',()=>{
 });
 
 test('storefront: browse, paint, undo, compare, persist, search and save favorites',async()=>{
- const window=new Window({url:'http://localhost:3000/'});
+ const window=new Window({url:'http://localhost:3000/',settings:{disableJavaScriptFileLoading:true,disableCSSFileLoading:true}});
  window.document.write(await readFile(new URL('../index.html',import.meta.url),'utf8'));
  for(const key of ['window','document','location','localStorage'])globalThis[key]=window[key];
  globalThis.matchMedia=()=>({matches:true});
@@ -18,10 +18,14 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  window.HTMLElement.prototype.close=function(){this.open=false;};
  await import('../src/app.js');
  const $=s=>document.querySelector(s);
- assert.match($('h1').textContent,/Color outside/);
+ assert.match($('h1').textContent,/Unbox a world/);
+ assert.equal(document.querySelectorAll('.shelf-card').length,4);
+ assert.equal(document.querySelectorAll('.fan-card').length,4);
+ location.hash='/books';window.dispatchEvent(new window.Event('hashchange'));
  assert.equal(document.querySelectorAll('.book-card').length,4);
  $('[data-filter="Ocean"]').click();assert.equal(document.querySelectorAll('.book-card').length,1);
  assert.match($('#book-grid').textContent,/Ocean Days/);
+ $('[data-filter="All books"]').click();
  $('[data-preview="cozy-critters"]').click();assert.equal($('#preview').open,true);
  $('[data-color="#91cde5"]').click();$('[data-region="head"]').dispatchEvent(new window.MouseEvent('click',{bubbles:true}));
  assert.equal($('[data-region="head"]').getAttribute('fill'),'#91cde5');
@@ -43,5 +47,6 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  $('#search-close').click();location.hash='/books/cozy-critters';window.dispatchEvent(new window.Event('hashchange'));
  assert.match($('h1').textContent,/Cozy Critters/);assert.equal(document.querySelectorAll('.inside-gallery button').length,6);
  assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,0);
+ const {unmountMotion}=await import('../src/motion.js');unmountMotion();
  await window.happyDOM.abort();
 });

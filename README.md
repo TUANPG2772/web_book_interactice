@@ -1,6 +1,6 @@
 # Homepilato Studio
 
-A complete, dependency-free storefront frontend with an interactive coloring room. Built for the brief in this repository: a bold Aardvark-inspired homepage and a quiet, region-based coloring experience inspired by Where Colors Dream.
+A static storefront frontend with locally bundled GSAP, ScrollTrigger and Lenis with an interactive coloring room. Built for the brief in this repository: a bold Aardvark-inspired homepage and a quiet, region-based coloring experience inspired by Where Colors Dream.
 
 ## Run locally
 
@@ -10,7 +10,7 @@ Requires Node.js 20 or newer.
 npm run dev
 ```
 
-Open http://localhost:3000. No installation is needed to run or build the site.
+Open http://localhost:3000. The repository includes the runtime assets, so you can run the site immediately. Run `npm ci` to install development tools or update the bundled dependencies.
 
 ```sh
 npm run build
@@ -20,7 +20,10 @@ Upload `dist/` to any static host. On Vercel choose **Other**, build command `np
 
 ## What works
 
-- Yellow full-viewport hero, oversized typography, floating book covers, capsule navigation.
+- Motion-led yellow hero with three dimensional book layers, a five-second floating cycle, cursor parallax, scroll parallax, and staggered title entrance.
+- Smooth wheel scrolling with Lenis, fixed capsule navigation, horizontal drag/swipe book carousel, hover tilt, springing decorations and letter-level button animation.
+- Four fanned step cards; scroll-linked opening box with books rising out; category hover that reveals cursor-following cover clusters.
+- Reduced-motion/static fallbacks and teardown of listeners/tweens on every route change.
 - Four original demo book editions, category filtering, product detail routes, six sample pages per book.
 - Fullscreen native dialog with desktop two-page spread and mobile single-page view.
 - Eight-color palette; mouse, touch, and keyboard painting of individual closed SVG regions.
@@ -36,7 +39,7 @@ npm ci
 npm test
 ```
 
-The DOM integration test covers category filtering, opening previews, mouse and keyboard coloring, undo/reset, page persistence, comparison mode, wishlist, search and product navigation. It does not replace rendered browser or mobile QA.
+The tests cover category filtering, opening previews, mouse and keyboard coloring, undo/reset, page persistence, comparison mode, wishlist, search, product navigation, carousel limits, keyboard/drag behavior, asset presence, and real GSAP/ScrollTrigger initialization and cleanup. It does not replace rendered browser or mobile QA.
 
 ## Source map
 
@@ -44,7 +47,12 @@ The DOM integration test covers category filtering, opening previews, mouse and 
 - `src/app.js`: routes, view components, interactions, coloring state.
 - `src/art.js`: original SVG demo illustrations and independently paintable regions.
 - `src/data.js`: editable product catalog and palettes.
-- `src/styles.css`: full design system, responsive layouts and animation.
+- `src/styles.css`: base design system and coloring-room layout.
+- `src/home.js`: homepage section components.
+- `src/motion.js`: GSAP/ScrollTrigger choreography, Lenis and carousel behavior.
+- `src/motion.css`: homepage visuals, 3D objects and motion fallbacks.
+- `assets/covers/`: replaceable cover images shared by all book placements.
+- `assets/vendor/`, `assets/fonts/`: bundled runtime assets and font.
 - `scripts/serve.mjs`: local static server.
 - `scripts/build.mjs`: portable static build.
 - `docs/DESIGN.md`: design rationale and production checklist.
@@ -55,7 +63,7 @@ The four editions, artwork, page counts, sizes, and age ranges are **demo conten
 
 1. Edit the records in `src/data.js` with final titles, specifications, descriptions and prices.
 2. Set each `amazonUrl` to its verified HTTPS product URL. The purchase button appears only when a URL is supplied.
-3. Replace demo covers via the `cover()` component in `src/app.js`; put licensed cover images under `assets/` and add image paths to your records.
+3. Put your JPG/PNG/WebP/SVG covers under `assets/covers/` and set each `coverImage` in `src/data.js`. The Hero, carousel, product detail, opening box and genre effects all use that same field. See `docs/THAY-ANH-BIA.md`.
 4. Replace sample art in `src/art.js`. Keep each fillable area a closed SVG path with a stable, unique region ID and a default color. Keep black outlines above color fills. Do not inject untrusted SVG markup.
 5. Use actual book interiors for all preview pages. Some demo motifs are reused across editions to demonstrate navigation.
 
@@ -69,5 +77,7 @@ Wishlist and artwork use this device's `localStorage`. Downloads are generated l
 
 - https://www.aardvarkbookclub.com/ — homepage composition, scale and playful book presentation.
 - https://wherecolorsdream.art/index.html — quiet coloring workspace and region-based painting.
+
+The exact reference-site raster sequences and commercial fonts are not bundled. The Hero and opening box are recreated with replaceable 3D CSS book layers rather than baked frames; see `docs/MOTION.md` for the reference-to-implementation mapping.
 
 All demo vector artwork and copy were authored for this project. No source code, branded assets, product covers or illustrations from the reference sites are included. This is an interpretation for Homepilato, not a pixel-identical reproduction.

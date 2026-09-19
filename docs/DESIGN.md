@@ -2,7 +2,7 @@
 
 ## Visual direction
 
-The reference homepage uses saturated yellow, huge black type, physical books in motion, an open composition and capsule navigation. Homepilato adopts these structural choices, with warm pink, lilac and green books and original chibi artwork. The experience continues through a catalog, three-step creative journey, benefits, a studio gallery, free printables and FAQs.
+The reference homepage uses saturated yellow, huge black type, physical books in motion, an open composition and capsule navigation. Homepilato adopts these structural choices, with warm pink, lilac and green books and original chibi artwork. The experience continues through a draggable catalog, four fanned journey cards, a scroll-linked unboxing stage, interactive genre list, benefits, a studio gallery, free printables and FAQs.
 
 The coloring room changes pace: paper tones, quieter typography, a two-page book, soft shadows, compact controls. On small phones, the decorative facing page disappears to preserve a usable drawing area. The modal uses native dialog focus trapping and Escape behavior.
 
@@ -25,3 +25,7 @@ The app exports SVG rather than a screenshot, preserving line quality for print.
 ## Verification
 
 Build, syntax validation, and automated DOM integration checks are run before delivery. The environment's browser blocks localhost navigation, so local rendered browser QA cannot be completed through that browser. Check the deployed site on desktop and a touch device before commercial launch, including color persistence, keyboard focus, SVG downloads and actual Amazon destinations.
+
+## Motion revision
+
+The reference audit and implemented motion mapping are documented in `MOTION.md`. Cover replacement instructions are in `THAY-ANH-BIA.md`. Runtime libraries and the Archivo Black font are bundled locally. The original animated raster sequences and commercial reference fonts are not copied.
