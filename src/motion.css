@@ -46,3 +46,9 @@ html:not(.motion-ready) .shelf-cta{opacity:1;transform:translate(-50%,0)}
 #search-results .image-cover{height:70px;width:60px;background:transparent}
 #search-results .image-cover img{height:100%;width:100%;object-fit:contain}
 @media(min-width:801px){.collection .book-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Complete the tray: all four walls span from the floor (z=0) to the
+   hinge plane (z=--box-depth), including the 55px mobile depth. */
+.parcel-right{position:absolute;right:0;top:0;width:var(--box-depth);height:100%;transform-origin:right;transform:rotateY(90deg);background:linear-gradient(90deg,#65506b,#493271);backface-visibility:visible}
+.parcel-rear{position:absolute;left:0;right:0;top:0;height:var(--box-depth);transform-origin:top;transform:rotateX(90deg);background:linear-gradient(0deg,#66516e,#493271);backface-visibility:visible}
+.parcel-front,.parcel-side{backface-visibility:visible}
