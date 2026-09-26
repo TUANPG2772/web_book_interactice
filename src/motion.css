@@ -29,3 +29,20 @@ html:not(.motion-ready) .unbox-finale h2{font-size:2.4rem;max-width:none}
 html:not(.motion-ready) .unbox-scroll-hint,html:not(.motion-ready) .unbox-progress{display:none}
 html:not(.motion-ready) .shelf-cta{opacity:1;transform:translate(-50%,0)}
 @media(max-width:800px){html:not(.motion-ready) .unbox-stage{min-height:900px}}
+
+/* Keep the supplied square and portrait covers intact in every motion scene. */
+.image-cover{aspect-ratio:var(--book-ratio,600/780)}
+.image-cover img{object-fit:contain}
+.scene-book{aspect-ratio:var(--book-ratio,600/780)}
+.genre-floater .image-cover{width:100%;height:100%;background:transparent}
+.shelf-body{height:100%}
+.shelf-body>p{min-height:5.5em}
+.shelf-title{overflow-wrap:anywhere}
+.book-description{max-width:850px;margin:5rem auto 0;line-height:1.8}
+.book-description h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:2rem 0 1rem}
+.book-description li{margin:.65rem 0}
+.book-closing{font-weight:700;font-size:1.2rem}
+.interior-notice{font-size:.85rem;line-height:1.6;opacity:.75}
+#search-results .image-cover{height:70px;width:60px;background:transparent}
+#search-results .image-cover img{height:100%;width:100%;object-fit:contain}
+@media(min-width:801px){.collection .book-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}

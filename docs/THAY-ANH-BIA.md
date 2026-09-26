@@ -48,3 +48,13 @@ Mở `http://localhost:3000`. Nếu đã chạy server, dừng bằng Ctrl+C r�
 ## 5. Thay trang tô màu
 
 Ảnh bìa là ảnh thông thường. Trang tương tác trong sách là SVG có các vùng kín, khai báo ở `src/art.js`. Thay ảnh bìa không thay nội dung tô màu. Không thể dùng trực tiếp ảnh JPG/PNG làm trang tô từng vùng trong engine hiện tại; cần chuẩn bị SVG phân vùng tương ứng.
+
+
+## Danh mục sách thật (cập nhật)
+Ba bìa người dùng cung cấp được lưu dạng WebP trong `assets/covers/`. Dữ liệu và mô tả đầy đủ nằm trong `src/data.js`. `coverWidth` / `coverHeight` giữ nguyên tỷ lệ bìa; cập nhật cả hai khi thay ảnh.
+
+- K-Pop Warrior: 60 trang (40 chính + 20 bonus), 8.5 × 8.5 inch.
+- Everything Chibi: 50 con vật; chưa có số trang và khổ sách.
+- Vehicles: 40 phương tiện, 10 bước mỗi bài theo mô tả được cung cấp, tuổi 8+. Không suy ra số trang từ số bài. Bìa gốc có dòng “120 step-by-step drawing lessons”; giữ nguyên ảnh gốc, không sửa chữ trên bìa.
+
+Chưa có trang ruột hoặc link mua: minh họa tô màu được ghi rõ là studio demo, không phải trang sách thật. Điền `amazonUrl` khi có đường dẫn chính thức.
