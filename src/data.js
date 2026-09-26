@@ -123,7 +123,7 @@ export const books=[
     "coverWidth": 1254,
     "coverHeight": 1254,
     "price": null,
-    "amazonUrl": null,
+    "amazonUrl": "https://www.amazon.com/dp/B0HJNT12NH",
     "featured": true
   },
   {
@@ -167,7 +167,7 @@ export const books=[
     "coverWidth": 1103,
     "coverHeight": 1426,
     "price": null,
-    "amazonUrl": null,
+    "amazonUrl": "https://www.amazon.com/dp/B0HHK2XMNZ",
     "featured": true
   },
   {
