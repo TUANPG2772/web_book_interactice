@@ -81,3 +81,5 @@ Wishlist and artwork use this device's `localStorage`. Downloads are generated l
 The exact reference-site raster sequences and commercial fonts are not bundled. The Hero and opening box are recreated with replaceable 3D CSS book layers rather than baked frames; see `docs/MOTION.md` for the reference-to-implementation mapping.
 
 All demo vector artwork and copy were authored for this project. No source code, branded assets, product covers or illustrations from the reference sites are included. This is an interpretation for Homepilato, not a pixel-identical reproduction.
+
+<!-- Trigger Vercel production deployment after repository reconnection -->
