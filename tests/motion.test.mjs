@@ -41,6 +41,18 @@ test('real GSAP/ScrollTrigger runtime mounts and tears down all motion sections'
  win.eval(await readFile(new URL('../assets/vendor/lenis.min.js',import.meta.url),'utf8'));
  try{
  mountMotion();assert.ok(document.documentElement.classList.contains('motion-ready'));assert.ok(win.ScrollTrigger.getAll().length>6);
+ // Scrub both ways: front edge rises, rear hinge stays fixed, books wait for clearance.
+ const unbox=win.ScrollTrigger.getAll().find(t=>t.trigger===document.querySelector('.unbox-scroll')).animation;
+ const lid=document.querySelector('.parcel-lid');
+ assert.equal(lid.parentElement.className,'parcel-hinge');
+ const angle=()=>Number(win.gsap.getProperty(lid,'rotationX'));
+ unbox.time(0);assert.equal(angle(),0);
+ const initialBookZ=Number(win.gsap.getProperty('.parcel-book-0','z'));
+ for(const time of [.1,.2,.3,.43]){unbox.time(time);assert.ok(angle()>0 && angle()<=115);assert.ok(Math.sin(angle()*Math.PI/180)>0,'front edge must be above hinge, never inside box');assert.equal(Number(win.gsap.getProperty('.parcel-book-0','z')),initialBookZ);}
+ assert.ok(Math.cos(angle()*Math.PI/180)<0,'open lid lies behind rear hinge');
+ unbox.time(.7);assert.ok(Number(win.gsap.getProperty('.parcel-book-0','z'))>initialBookZ);
+ unbox.time(.43);assert.equal(Number(win.gsap.getProperty('.parcel-book-0','z')),initialBookZ);
+ unbox.time(0);assert.equal(angle(),0);
  document.querySelector('[data-genre]').dispatchEvent(new win.PointerEvent('pointerenter'));
  assert.equal(document.querySelectorAll('.genre-floater-cover.active').length,4);
  document.querySelector('.split-button').dispatchEvent(new win.PointerEvent('pointerenter'));
