@@ -76,9 +76,9 @@ export const books=[
       "bear"
     ],
     "id": "k-pop-warrior-coloring-book",
-    "coverImage": "./assets/covers/k-pop-warrior-coloring-book.webp",
-    "coverWidth": 342,
-    "coverHeight": 342,
+    "coverImage": "./assets/covers/k-pop-warrior-coloring-book-hd.webp",
+    "coverWidth": 1200,
+    "coverHeight": 1200,
     "price": null,
     "amazonUrl": "https://www.amazon.com/dp/B0GX2HH218",
     "featured": true
@@ -119,9 +119,9 @@ export const books=[
       "mushroom"
     ],
     "id": "how-to-draw-everything-chibi",
-    "coverImage": "./assets/covers/how-to-draw-everything-chibi.webp",
-    "coverWidth": 1000,
-    "coverHeight": 1000,
+    "coverImage": "./assets/covers/how-to-draw-everything-chibi-hd.webp",
+    "coverWidth": 1254,
+    "coverHeight": 1254,
     "price": null,
     "amazonUrl": null,
     "featured": true
@@ -163,9 +163,9 @@ export const books=[
       "octopus"
     ],
     "id": "how-to-draw-vehicles",
-    "coverImage": "./assets/covers/how-to-draw-vehicles.webp",
-    "coverWidth": 301,
-    "coverHeight": 425,
+    "coverImage": "./assets/covers/how-to-draw-vehicles-hd.webp",
+    "coverWidth": 1103,
+    "coverHeight": 1426,
     "price": null,
     "amazonUrl": null,
     "featured": true
