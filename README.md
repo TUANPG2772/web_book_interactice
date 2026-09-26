@@ -83,3 +83,4 @@ The exact reference-site raster sequences and commercial fonts are not bundled. 
 All demo vector artwork and copy were authored for this project. No source code, branded assets, product covers or illustrations from the reference sites are included. This is an interpretation for Homepilato, not a pixel-identical reproduction.
 
 <!-- Trigger Vercel production deployment after repository reconnection -->
+<!-- Redeploy after fixing Vercel root directory -->
