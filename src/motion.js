@@ -42,7 +42,7 @@ const box=root.querySelector('.unbox-scroll');if(box){
  .to('.parcel-book-0',{xPercent:-72,yPercent:-10,z:120,rotationZ:-14,duration:.26},.47)
  .to('.parcel-book-1',{xPercent:0,yPercent:-22,z:180,rotationZ:0,duration:.26},.49)
  .to('.parcel-book-2',{xPercent:72,yPercent:8,z:140,rotationZ:14,duration:.26},.51)
- .to('.parcel',{rotationX:0,scale:.95,xPercent:()=>window.innerWidth>800?-22:0,y:0,duration:.18},.72)
+ .to('.parcel',{rotationX:0,scale:()=>window.innerWidth>800&&window.innerWidth<=1150?.66:.95,xPercent:()=>window.innerWidth>1150?-65:window.innerWidth>800?-54:0,y:0,duration:.18},.72)
  .fromTo('.unbox-note',{autoAlpha:0,y:40},{autoAlpha:1,y:0,duration:.1},.3)
  .to('.unbox-note',{autoAlpha:0,y:-35,duration:.08},.37)
  .fromTo('.unbox-finale',{autoAlpha:0,y:60,scale:.92},{autoAlpha:1,y:0,scale:1,duration:.12},.88)
