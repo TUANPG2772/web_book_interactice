@@ -37,9 +37,8 @@ const box=root.querySelector('.unbox-scroll');if(box){
  const tl=g.timeline({scrollTrigger:{trigger:box,start:'top top',end:'bottom bottom',scrub:motionSettings.scrub,invalidateOnRefresh:true}});
  tl.fromTo('.parcel',{rotationX:50,rotationZ:-20,scale:.85,y:80},{rotationX:27,rotationZ:0,scale:1,y:10,duration:.3,ease:'none'},0)
  .fromTo('.parcel-lid',{rotationX:0},{rotationX:115,duration:.35,ease:'none'},.08)
- // Retreat the complete box independently; books are siblings, not children of the shell.
- .fromTo('.parcel-shell',{scale:1,z:0,y:0},{scale:.38,z:-420,y:100,duration:.18,ease:'power2.inOut'},.44)
- .to('.parcel-shell',{autoAlpha:0,duration:.12},.62)
+ // Finish opening, fade the stationary box away, then animate the books.
+ .fromTo('.parcel-shell',{autoAlpha:1},{autoAlpha:0,duration:.18,ease:'power1.inOut'},.44)
  .to('.parcel-book-0',{xPercent:-72,yPercent:-10,z:120,rotationZ:-14,duration:.2},.64)
  .to('.parcel-book-1',{xPercent:0,yPercent:-22,z:180,rotationZ:0,duration:.2},.66)
  .to('.parcel-book-2',{xPercent:72,yPercent:8,z:140,rotationZ:14,duration:.2},.68)
