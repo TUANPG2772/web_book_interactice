@@ -52,3 +52,21 @@ html:not(.motion-ready) .shelf-cta{opacity:1;transform:translate(-50%,0)}
 .parcel-right{position:absolute;right:0;top:0;width:var(--box-depth);height:100%;transform-origin:right;transform:rotateY(90deg);background:linear-gradient(90deg,#65506b,#493271);backface-visibility:visible}
 .parcel-rear{position:absolute;left:0;right:0;top:0;height:var(--box-depth);transform-origin:top;transform:rotateX(90deg);background:linear-gradient(0deg,#66516e,#493271);backface-visibility:visible}
 .parcel-front,.parcel-side{backface-visibility:visible}
+
+/* Keep the complete tray separate from the featured books during the reveal. */
+.parcel-shell{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 60%}
+.header>.brand{color:#35245f;background:#fff5cf;border:1px solid #35245f20;border-radius:14px;padding:10px 16px;box-shadow:0 3px 14px #35245f12}
+.hero-motion h1,.hero-motion .hero-copy>p{color:#35245f}
+.hero-motion .hero-hand{color:#453060}
+@media(min-width:801px){
+ .hero-motion .hero-copy{width:54%;max-width:850px}
+ .hero-motion h1{font-size:clamp(4rem,7.5vw,8rem)}
+ .hero-motion .scene-book-0{left:auto;right:8%;top:-38%;width:22vw}
+ .hero-motion .scene-book-2{left:54%;bottom:-37%;width:25vw}
+}
+@media(max-width:800px){
+ .header>.brand{background:#fff5cf;color:#35245f}
+ .hero-motion .scene-book-0{display:none}
+ .unbox-finale{bottom:7%}
+}
+@media(prefers-reduced-motion:reduce){.parcel-shell{transform:translateZ(-420px) scale(.38);visibility:hidden}.parcel-book-0{transform:translateX(-72%) rotate(-14deg)}.parcel-book-1{transform:translateY(-22%)}.parcel-book-2{transform:translateX(72%) rotate(14deg)}}

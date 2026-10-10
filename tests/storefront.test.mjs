@@ -46,7 +46,7 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  assert.match($('#search-results').textContent,/K-Pop Warrior/);
  $('#search-close').click();location.hash='/books/how-to-draw-everything-chibi';window.dispatchEvent(new window.Event('hashchange'));
  assert.match($('h1').textContent,/How to Draw Everything Chibi/);assert.equal(document.querySelectorAll('.inside-gallery button').length,6);
- assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,0);
+ assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,books.find(b=>b.id==='how-to-draw-everything-chibi').amazonUrl?1:0);
  for(const b of books){location.hash='/books/'+b.id;window.dispatchEvent(new window.Event('hashchange'));assert.ok(document.querySelector('.book-description').textContent.includes(b.closing));assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,b.amazonUrl?1:0);assert.ok(document.querySelector('.product-copy').textContent.includes(b.countLabel));assert.match(document.querySelector('.interior-notice').textContent,/not pages from this book/);assert.equal(document.querySelector('.product-cover img').getAttribute('width'),String(b.coverWidth));}
  assert.equal(books[1].pageCount,undefined);assert.equal(books[2].pageCount,undefined);
  const {unmountMotion}=await import('../src/motion.js');unmountMotion();

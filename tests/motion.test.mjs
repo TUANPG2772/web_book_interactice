@@ -50,6 +50,9 @@ test('real GSAP/ScrollTrigger runtime mounts and tears down all motion sections'
  const initialBookZ=Number(win.gsap.getProperty('.parcel-book-0','z'));
  for(const time of [.1,.2,.3,.43]){unbox.time(time);assert.ok(angle()>0 && angle()<=115);assert.ok(Math.sin(angle()*Math.PI/180)>0,'front edge must be above hinge, never inside box');assert.equal(Number(win.gsap.getProperty('.parcel-book-0','z')),initialBookZ);}
  assert.ok(Math.cos(angle()*Math.PI/180)<0,'open lid lies behind rear hinge');
+ assert.equal(document.querySelector('.parcel-books').parentElement,document.querySelector('.parcel-shell').parentElement);
+ unbox.time(.62);assert.ok(Number(win.gsap.getProperty('.parcel-shell','scaleX'))<.4);assert.ok(Number(win.gsap.getProperty('.parcel-shell','z'))<-400);assert.equal(Number(win.gsap.getProperty('.parcel-book-0','z')),initialBookZ);
+ unbox.time(.9);assert.equal(Number(win.gsap.getProperty('.parcel-shell','opacity')),0);
  unbox.time(.7);assert.ok(Number(win.gsap.getProperty('.parcel-book-0','z'))>initialBookZ);
  unbox.time(.43);assert.equal(Number(win.gsap.getProperty('.parcel-book-0','z')),initialBookZ);
  unbox.time(0);assert.equal(angle(),0);
