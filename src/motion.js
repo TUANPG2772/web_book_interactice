@@ -36,15 +36,15 @@ const fan=root.querySelector('.fan-section');if(fan){const cards=[...fan.querySe
 const box=root.querySelector('.unbox-scroll');if(box){
  const tl=g.timeline({scrollTrigger:{trigger:box,start:'top top',end:'bottom bottom',scrub:motionSettings.scrub,invalidateOnRefresh:true}});
  tl.fromTo('.parcel',{rotationX:50,rotationZ:-20,scale:.85,y:80},{rotationX:27,rotationZ:0,scale:1,y:10,duration:.3,ease:'none'},0)
- .fromTo('.parcel-lid',{rotationX:0},{rotationX:115,duration:.35,ease:'none'},.08)
+ .fromTo('.parcel-lid',{rotationX:0},{rotationX:115,duration:.28,ease:'none'},.08)
  // Finish opening, fade the stationary box away, then animate the books.
- .fromTo('.parcel-shell',{autoAlpha:1},{autoAlpha:0,duration:.18,ease:'power1.inOut'},.44)
- .to('.parcel-book-0',{xPercent:-72,yPercent:-10,z:120,rotationZ:-14,duration:.2},.64)
- .to('.parcel-book-1',{xPercent:0,yPercent:-22,z:180,rotationZ:0,duration:.2},.66)
- .to('.parcel-book-2',{xPercent:72,yPercent:8,z:140,rotationZ:14,duration:.2},.68)
- .to('.parcel',{rotationX:0,scale:.95,xPercent:()=>window.innerWidth>800?-22:0,y:0,duration:.18},.78)
+ .fromTo('.parcel-shell',{autoAlpha:1},{autoAlpha:0,duration:.08,ease:'power1.inOut'},.37)
+ .to('.parcel-book-0',{xPercent:-72,yPercent:-10,z:120,rotationZ:-14,duration:.26},.47)
+ .to('.parcel-book-1',{xPercent:0,yPercent:-22,z:180,rotationZ:0,duration:.26},.49)
+ .to('.parcel-book-2',{xPercent:72,yPercent:8,z:140,rotationZ:14,duration:.26},.51)
+ .to('.parcel',{rotationX:0,scale:.95,xPercent:()=>window.innerWidth>800?-22:0,y:0,duration:.18},.72)
  .fromTo('.unbox-note',{autoAlpha:0,y:40},{autoAlpha:1,y:0,duration:.1},.3)
- .to('.unbox-note',{autoAlpha:0,y:-35,duration:.1},.52)
+ .to('.unbox-note',{autoAlpha:0,y:-35,duration:.08},.37)
  .fromTo('.unbox-finale',{autoAlpha:0,y:60,scale:.92},{autoAlpha:1,y:0,scale:1,duration:.12},.88)
  .to('.unbox-progress span',{scaleX:1,duration:1,ease:'none'},0)
  .to('.unbox-header',{opacity:0,y:-50,duration:.12},0)
