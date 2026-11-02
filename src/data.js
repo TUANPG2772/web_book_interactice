@@ -34,6 +34,59 @@ export const palette=[
 ];
 export const books=[
   {
+    "id": "how-to-draw-anything-halloween",
+    "title": "How to Draw Anything: 200 Halloween Drawings in 4 Easy Steps",
+    "subtitle": "Cute Chibi Costumes, Friendly Monsters, Spooky Sweets & Practice Space",
+    "category": "How to Draw",
+    "audience": "Kids ages 7–10",
+    "ageRange": "7–10",
+    "countLabel": "200 Halloween drawings · 4 easy steps",
+    "projectCount": 200,
+    "stepsPerProject": 4,
+    "bookSize": "8.5 × 8.5 inches",
+    "color": "#ff9a22",
+    "ink": "#61256e",
+    "description": "A spook-tacular Halloween drawing adventure with 200 cute ideas, four easy steps, and space to practice!",
+    "paragraphs": [
+      "Get ready to draw your way through Halloween! This beginner-friendly how-to-draw book introduces 200 playful Halloween-themed drawings—from adorable chibi costumes and friendly monsters to pumpkins, candy, and other spooky surprises.",
+      "Each drawing is broken into four approachable steps with dedicated practice space, helping young artists follow along, build confidence, and add their own creative touches."
+    ],
+    "features": [
+      "200 Halloween-themed drawings to discover and practice.",
+      "Four simple drawing steps for each design.",
+      "Cute chibi costumes, friendly monsters, spooky sweets, and festive Halloween surprises.",
+      "Practice space for young artists to try every drawing.",
+      "Fun, beginner-friendly drawing activities for kids ages 7–10.",
+      "A creative screen-free activity for Halloween season, quiet afternoons, and gifts."
+    ],
+    "details": [
+      "200 drawings with 4 steps each",
+      "Square book format: 8.5 × 8.5 inches",
+      "Recommended ages: 7–10"
+    ],
+    "perfectFor": [
+      "Young Halloween fans",
+      "Kids who enjoy drawing cute chibi characters",
+      "Beginners practicing drawing one step at a time"
+    ],
+    "closing": "Pick up a pencil and bring 200 little Halloween surprises to life!",
+    "coverImage": "./assets/covers/how-to-draw-anything-halloween.webp",
+    "coverWidth": 220,
+    "coverHeight": 220,
+    "price": null,
+    "amazonUrl": null,
+    "availability": "Amazon purchase link coming soon.",
+    "featured": true,
+    "previewPages": [
+      "cat",
+      "bunny",
+      "bear",
+      "mushroom",
+      "flower",
+      "butterfly"
+    ]
+  },
+  {
     "title": "K-Pop Warrior Coloring Book: Idols, Fashion & Action Fantasy",
     "subtitle": "Idols, Fashion & Action Fantasy",
     "category": "K-pop & Fantasy",
