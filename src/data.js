@@ -70,9 +70,9 @@ export const books=[
       "Beginners practicing drawing one step at a time"
     ],
     "closing": "Pick up a pencil and bring 200 little Halloween surprises to life!",
-    "coverImage": "./assets/covers/how-to-draw-anything-halloween.webp",
-    "coverWidth": 220,
-    "coverHeight": 220,
+    "coverImage": "https://d2ol7oe51mr4n9.cloudfront.net/user_39Hp6Jl8P6jkMv1lWCiobtwvdGE/d32de4c6-1f9a-40e3-9a8c-173f78eef8f8.png",
+    "coverWidth": 1254,
+    "coverHeight": 1254,
     "price": null,
     "amazonUrl": null,
     "availability": "Amazon purchase link coming soon.",
