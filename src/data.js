@@ -34,43 +34,42 @@ export const palette=[
 ];
 export const books=[
   {
-    "id": "how-to-draw-anything-halloween",
-    "title": "How to Draw Anything: 200 Halloween Drawings in 4 Easy Steps",
-    "subtitle": "Cute Chibi Costumes, Friendly Monsters, Spooky Sweets & Practice Space",
+    "id": "how-to-draw-everything-ocean",
+    "title": "How to Draw Everything for Kids: 200 Cute Sea Creatures, Beach Fun & Ocean Wonders",
+    "subtitle": "Easy Step-by-Step Drawing Lessons for Ages 5–10",
     "category": "How to Draw",
-    "audience": "Kids ages 7–10",
-    "ageRange": "7–10",
-    "countLabel": "200 Halloween drawings · 4 easy steps",
+    "audience": "Kids ages 5–10",
+    "ageRange": "5–10",
+    "countLabel": "200 drawing projects · 4 easy steps each",
     "projectCount": 200,
     "stepsPerProject": 4,
-    "bookSize": "8.5 × 8.5 inches",
-    "color": "#ff9a22",
-    "ink": "#61256e",
-    "description": "A spook-tacular Halloween drawing adventure with 200 cute ideas, four easy steps, and space to practice!",
+    "color": "#35c9e9",
+    "ink": "#07529a",
+    "description": "Make a splash with every sketch! Explore 200 ocean-inspired drawing projects, from smiling sea animals to beach-day favorites and imaginative ocean wonders.",
     "paragraphs": [
-      "Get ready to draw your way through Halloween! This beginner-friendly how-to-draw book introduces 200 playful Halloween-themed drawings—from adorable chibi costumes and friendly monsters to pumpkins, candy, and other spooky surprises.",
-      "Each drawing is broken into four approachable steps with dedicated practice space, helping young artists follow along, build confidence, and add their own creative touches."
+      "Dive into a playful underwater world with 200 ocean-inspired drawing projects designed for curious young artists. From smiling dolphins and blue whales to playful octopuses, jellyfish, mermaids, treasure chests, and beach-day favorites, every page offers something new to try.",
+      "Inside, kids will discover 200 different subjects across 100 two-project tutorial pages, four easy-to-follow drawing steps for every project, and a dedicated PRACTICE area beside each drawing lesson. The friendly chibi-style characters and repeatable four-step format make this a fun creative activity for beginners ages 5–10."
     ],
     "features": [
-      "200 Halloween-themed drawings to discover and practice.",
-      "Four simple drawing steps for each design.",
-      "Cute chibi costumes, friendly monsters, spooky sweets, and festive Halloween surprises.",
-      "Practice space for young artists to try every drawing.",
-      "Fun, beginner-friendly drawing activities for kids ages 7–10.",
-      "A creative screen-free activity for Halloween season, quiet afternoons, and gifts."
+      "200 different subjects across 100 two-project tutorial pages.",
+      "Four easy-to-follow drawing steps for every project.",
+      "A dedicated PRACTICE area beside each drawing lesson.",
+      "Sea animals, beach treats, toys and sports, and imaginative ocean wonders.",
+      "Clear black-and-white outlines that can also be colored.",
+      "A screen-free creative activity for art time at home, classroom activities, and young ocean lovers."
     ],
     "details": [
-      "200 drawings with 4 steps each",
-      "Square book format: 8.5 × 8.5 inches",
-      "Recommended ages: 7–10"
+      "200 drawing projects across 100 two-project tutorial pages",
+      "Four drawing steps for every project",
+      "Paperback"
     ],
     "perfectFor": [
-      "Young Halloween fans",
-      "Kids who enjoy drawing cute chibi characters",
-      "Beginners practicing drawing one step at a time"
+      "Beginner artists ages 5–10",
+      "Kids who love sea creatures and the ocean",
+      "Screen-free afternoons, art time at home, and classroom activities"
     ],
-    "closing": "Pick up a pencil and bring 200 little Halloween surprises to life!",
-    "coverImage": "https://d2ol7oe51mr4n9.cloudfront.net/user_39Hp6Jl8P6jkMv1lWCiobtwvdGE/d32de4c6-1f9a-40e3-9a8c-173f78eef8f8.png",
+    "closing": "Start with simple shapes, add details one step at a time, and enjoy making each drawing your own. Make a splash with every sketch!",
+    "coverImage": "https://d2ol7oe51mr4n9.cloudfront.net/user_39Hp6Jl8P6jkMv1lWCiobtwvdGE/8254237e-9e27-42a1-8f40-240a9cd9460f.png",
     "coverWidth": 1254,
     "coverHeight": 1254,
     "price": null,
@@ -78,12 +77,12 @@ export const books=[
     "availability": "Amazon purchase link coming soon.",
     "featured": true,
     "previewPages": [
-      "cat",
-      "bunny",
-      "bear",
-      "mushroom",
-      "flower",
-      "butterfly"
+      "fish",
+      "turtle",
+      "octopus",
+      "fish",
+      "turtle",
+      "octopus"
     ]
   },
   {
