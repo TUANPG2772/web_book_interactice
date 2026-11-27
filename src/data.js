@@ -34,69 +34,6 @@ export const palette=[
 ];
 export const books=[
   {
-    "id": "how-to-draw-kawaii",
-    "title": "How to Draw Kawaii: 50 Cute Animals, Food & Fantasy Characters to Draw in 16 Steps for Kids Ages 8–12",
-    "subtitle": "50 Cute Animals, Food & Fantasy Characters · 16 Steps Each",
-    "category": "How to Draw",
-    "author": "Studio HomePilato",
-    "format": "Paperback",
-    "audience": "Kids ages 8–12",
-    "ageRange": "8–12",
-    "countLabel": "50 cute designs · 16 steps each",
-    "projectCount": 50,
-    "stepsPerProject": 16,
-    "color": "#d5a5ec",
-    "ink": "#51295c",
-    "description": "Small steps. Big imagination! Discover 50 adorable kawaii drawing projects, each broken into 16 friendly steps for young artists.",
-    "paragraphs": [
-      "Small steps. Big imagination! Discover a world of adorable drawing with How to Draw Kawaii, a step-by-step drawing book created for kids ages 8–12.",
-      "Explore 50 cute designs featuring lovable animals, sweet treats, and fantasy characters. Each project includes 16 guided steps, helping young artists build their drawings gradually—from simple shapes to expressive faces and finishing details.",
-      "Start with a pencil and eraser, follow the drawings, and add your own creative touches. Once the outlines are finished, bring your creations to life with your favorite colors."
-    ],
-    "features": [
-      "50 kawaii drawing projects featuring cute animals, food, and fantasy characters.",
-      "16 illustrated steps for every design.",
-      "Written instructions to support each drawing stage.",
-      "Two-page lessons: steps 1–9 on the left and steps 10–16 on the right.",
-      "Bonus coloring pages featuring kawaii favorites.",
-      "Friendly beginner lessons that help young artists practice at their own pace."
-    ],
-    "details": [
-      "Paperback",
-      "50 designs · 16 steps for each project",
-      "Two-page lessons: 1–9 left, 10–16 right",
-      "Bonus kawaii coloring pages"
-    ],
-    "perfectFor": [
-      "Young artists ages 8–12",
-      "Kids who love adorable animals, sweet treats, and imaginative characters",
-      "Creative afternoons at home, drawing practice, and thoughtful gifts"
-    ],
-    "closing": "Pick a favorite. Follow the steps. Make it your own!",
-    "coverImage": "./assets/covers/how-to-draw-kawaii.webp",
-    "coverWidth": 1254,
-    "coverHeight": 1254,
-    "price": null,
-    "amazonUrl": null,
-    "availability": "Amazon purchase link coming soon.",
-    "featured": true,
-    "previewPages": [
-      "bunny",
-      "cat",
-      "bear",
-      "mushroom",
-      "flower",
-      "butterfly"
-    ],
-    "lessonLayout": {
-      "steps": 16,
-      "left": "Steps 1–9",
-      "right": "Steps 10–16",
-      "guidance": "Written guidance accompanies every stage",
-      "bonus": "Bonus kawaii coloring pages"
-    }
-  },
-  {
     "id": "how-to-draw-everything-ocean",
     "title": "How to Draw Everything for Kids: 200 Cute Sea Creatures, Beach Fun & Ocean Wonders",
     "subtitle": "Easy Step-by-Step Drawing Lessons for Ages 5–10",
@@ -469,6 +406,69 @@ export const books=[
     "sourceFile": "book-cool-car-wheels.html",
     "coverWidth": 1200,
     "coverHeight": 1200
+  },
+  {
+    "id": "how-to-draw-kawaii",
+    "title": "How to Draw Kawaii: 50 Cute Animals, Food & Fantasy Characters to Draw in 16 Steps for Kids Ages 8–12",
+    "subtitle": "50 Cute Animals, Food & Fantasy Characters · 16 Steps Each",
+    "category": "How to Draw",
+    "author": "Studio HomePilato",
+    "format": "Paperback",
+    "audience": "Kids ages 8–12",
+    "ageRange": "8–12",
+    "countLabel": "50 cute designs · 16 steps each",
+    "projectCount": 50,
+    "stepsPerProject": 16,
+    "color": "#d5a5ec",
+    "ink": "#51295c",
+    "description": "Small steps. Big imagination! Discover 50 adorable kawaii drawing projects, each broken into 16 friendly steps for young artists.",
+    "paragraphs": [
+      "Small steps. Big imagination! Discover a world of adorable drawing with How to Draw Kawaii, a step-by-step drawing book created for kids ages 8–12.",
+      "Explore 50 cute designs featuring lovable animals, sweet treats, and fantasy characters. Each project includes 16 guided steps, helping young artists build their drawings gradually—from simple shapes to expressive faces and finishing details.",
+      "Start with a pencil and eraser, follow the drawings, and add your own creative touches. Once the outlines are finished, bring your creations to life with your favorite colors."
+    ],
+    "features": [
+      "50 kawaii drawing projects featuring cute animals, food, and fantasy characters.",
+      "16 illustrated steps for every design.",
+      "Written instructions to support each drawing stage.",
+      "Two-page lessons: steps 1–9 on the left and steps 10–16 on the right.",
+      "Bonus coloring pages featuring kawaii favorites.",
+      "Friendly beginner lessons that help young artists practice at their own pace."
+    ],
+    "details": [
+      "Paperback",
+      "50 designs · 16 steps for each project",
+      "Two-page lessons: 1–9 left, 10–16 right",
+      "Bonus kawaii coloring pages"
+    ],
+    "perfectFor": [
+      "Young artists ages 8–12",
+      "Kids who love adorable animals, sweet treats, and imaginative characters",
+      "Creative afternoons at home, drawing practice, and thoughtful gifts"
+    ],
+    "closing": "Pick a favorite. Follow the steps. Make it your own!",
+    "coverImage": "./assets/covers/how-to-draw-kawaii.webp",
+    "coverWidth": 1254,
+    "coverHeight": 1254,
+    "price": null,
+    "amazonUrl": null,
+    "availability": "Amazon purchase link coming soon.",
+    "featured": true,
+    "previewPages": [
+      "bunny",
+      "cat",
+      "bear",
+      "mushroom",
+      "flower",
+      "butterfly"
+    ],
+    "lessonLayout": {
+      "steps": 16,
+      "left": "Steps 1–9",
+      "right": "Steps 10–16",
+      "guidance": "Written guidance accompanies every stage",
+      "bonus": "Bonus kawaii coloring pages"
+    }
   }
 ];
 export const pageNames={
