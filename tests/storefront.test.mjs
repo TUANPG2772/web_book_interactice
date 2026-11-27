@@ -66,6 +66,7 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  assert.match(document.querySelector('#main').textContent,/Book not found/);
  location.hash='';window.dispatchEvent(new window.Event('hashchange'));
  assert.equal(document.querySelectorAll('.shelf-card').length,8);
+ assert.equal(document.querySelector('.shelf-title[href="#/books/how-to-draw-kawaii"]').textContent,'How to Draw Kawaii');
  assert.equal(document.querySelectorAll('[data-genre]').length,8);
  const links=[...document.querySelectorAll('[data-genre]')];
  for(const [id,label] of [
@@ -91,6 +92,7 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  assert.equal(books.findIndex(b=>b.id==='how-to-draw-fashion')+1,books.findIndex(b=>b.id==='k-pop-chibi-coloring-book'));
  assert.ok((await readFile(new URL('../assets/covers/how-to-draw-fashion.webp',import.meta.url))).length>100000);
  location.hash='/books';window.dispatchEvent(new window.Event('hashchange'));
+ assert.equal(document.querySelector('.book-title[href="#/books/how-to-draw-kawaii"]').textContent,'How to Draw Kawaii ↗');
  const fashionCard=document.querySelector('.book-title[href="#/books/how-to-draw-fashion"]');
  assert.ok(fashionCard);assert.equal(fashionCard.textContent.trim(),'How to Draw Fashion ↗');
  location.hash='/books/how-to-draw-fashion';window.dispatchEvent(new window.Event('hashchange'));
@@ -111,7 +113,12 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
    assert.equal(visibleBooks.some(b=>b.id===id),false);
  }
 
- assert.equal(books.at(-1).id,'how-to-draw-kawaii');
+ assert.equal(kawaii.title,'How to Draw Kawaii');
+ assert.equal(kawaii.fullTitle,'How to Draw Kawaii: 50 Cute Animals, Food & Fantasy Characters to Draw in 16 Steps for Kids Ages 8–12');
+ assert.equal(visibleBooks.findIndex(b=>b.id==='how-to-draw-kawaii')+1,visibleBooks.findIndex(b=>b.id==='cozy-love-valentines-coloring-book'));
+ assert.equal(books.findIndex(b=>b.id==='how-to-draw-kawaii')+1,books.findIndex(b=>b.id==='cozy-love-valentines-coloring-book'));
+ assert.equal(books.at(-1).id,'cool-car-wheels-coloring-book');
+ assert.equal(document.querySelector('.product-copy h1').textContent,kawaii.fullTitle);
  assert.equal(kawaii.projectCount,50);assert.equal(kawaii.stepsPerProject,16);
  assert.equal(kawaii.previewPages.length,6);
  assert.equal(kawaii.coverWidth,1254);assert.equal(kawaii.coverHeight,1254);
