@@ -48,7 +48,22 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  assert.match($('h1').textContent,/How to Draw Everything Chibi/);assert.equal(document.querySelectorAll('.inside-gallery button').length,6);
  assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,books.find(b=>b.id==='how-to-draw-everything-chibi').amazonUrl?1:0);
  for(const b of books){location.hash='/books/'+b.id;window.dispatchEvent(new window.Event('hashchange'));assert.ok(document.querySelector('.book-description').textContent.includes(b.closing));assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,b.amazonUrl?1:0);assert.ok(document.querySelector('.product-copy').textContent.includes(b.countLabel));assert.match(document.querySelector('.interior-notice').textContent,/not pages from this book/);assert.equal(document.querySelector('.product-cover img').getAttribute('width'),String(b.coverWidth));}
- assert.equal(books[1].pageCount,undefined);assert.equal(books[2].pageCount,undefined);
+ const kawaii=books.find(b=>b.id==='how-to-draw-kawaii');
+ assert.ok(kawaii,'Kawaii should be added as a separate title');
+ assert.equal(books.length,9);
+ assert.equal(books.at(-1).id,'how-to-draw-kawaii');
+ assert.equal(kawaii.projectCount,50);assert.equal(kawaii.stepsPerProject,16);
+ assert.equal(kawaii.previewPages.length,6);
+ assert.equal(kawaii.coverWidth,1254);assert.equal(kawaii.coverHeight,1254);
+ assert.ok(document.querySelector('.kawaii-lesson'));
+ assert.equal(document.querySelectorAll('.kawaii-step-list span').length,16);
+ assert.match(document.querySelector('.kawaii-lesson').textContent,/Written instructions/);
+ assert.match(document.querySelector('.kawaii-lesson').textContent,/Bonus coloring pages/);
+ location.hash='/books/how-to-draw-everything-chibi';window.dispatchEvent(new window.Event('hashchange'));
+ assert.equal(document.querySelector('.kawaii-lesson'),null,'Kawaii-only content must not appear for other books');
+ assert.equal(books.find(b=>b.id==='how-to-draw-everything-chibi').pageCount,undefined);
+ assert.equal(books.find(b=>b.id==='how-to-draw-vehicles').pageCount,undefined);
+
  const {unmountMotion}=await import('../src/motion.js');unmountMotion();
  await window.happyDOM.abort();
 });
