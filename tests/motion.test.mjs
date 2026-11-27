@@ -4,7 +4,7 @@ import {readFile,access} from 'node:fs/promises';
 import {Window} from 'happy-dom';
 import {carouselState,mountMotion,unmountMotion} from '../src/motion.js';
 import {bookCarousel,motionHero,fanJourney,unboxing,genreExplorer} from '../src/home.js';
-import {books} from '../src/data.js';
+import {books,visibleBooks} from '../src/data.js';
 import {svgArt} from '../src/art.js';
 const cover=b=>`<div class="book-cover"><img src="${b.coverImage}" alt="${b.title}"></div>`;
 const dom=()=>{const win=new Window({url:'http://localhost:3000/',settings:{disableJavaScriptFileLoading:true,disableCSSFileLoading:true}});for(const key of ['window','document','location','localStorage'])globalThis[key]=win[key];globalThis.matchMedia=()=>({matches:false});return win;};
@@ -16,7 +16,7 @@ test('carousel limits remain valid at the start, end, and when all cards fit',()
 });
 
 test('carousel keyboard, drag click suppression, and route cleanup work without animation libraries',async()=>{
- const win=dom();document.body.innerHTML='<main id="main">'+bookCarousel(books,cover)+'</main>';
+ const win=dom();document.body.innerHTML='<main id="main">'+bookCarousel(visibleBooks,cover)+'</main>';
  const rail=document.querySelector('.book-rail');Object.defineProperty(rail,'clientWidth',{value:600});Object.defineProperty(rail,'scrollWidth',{value:1500});mountMotion();
  const next=document.querySelector('[data-carousel-next]');next.click();assert.equal(rail.scrollLeft,316);
  rail.dispatchEvent(new win.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));assert.equal(rail.scrollLeft,632);
@@ -35,7 +35,7 @@ test('all catalog covers, runtime libraries, and the local display font are bund
 
 test('real GSAP/ScrollTrigger runtime mounts and tears down all motion sections',async()=>{
  const win=dom();globalThis.matchMedia=q=>({matches:q.includes('pointer: fine'),addEventListener(){},removeEventListener(){}});
- document.body.innerHTML='<header class="header"></header><main id="main">'+motionHero(books,cover)+bookCarousel(books,cover)+fanJourney(svgArt)+unboxing(books,cover)+genreExplorer(books,cover)+'</main>';
+ document.body.innerHTML='<header class="header"></header><main id="main">'+motionHero(visibleBooks,cover)+bookCarousel(visibleBooks,cover)+fanJourney(svgArt)+unboxing(visibleBooks,cover)+genreExplorer(visibleBooks,cover)+'</main>';
  win.eval(await readFile(new URL('../assets/vendor/gsap.min.js',import.meta.url),'utf8'));
  win.eval(await readFile(new URL('../assets/vendor/ScrollTrigger.min.js',import.meta.url),'utf8'));
  win.eval(await readFile(new URL('../assets/vendor/lenis.min.js',import.meta.url),'utf8'));

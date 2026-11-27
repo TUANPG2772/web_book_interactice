@@ -286,6 +286,7 @@ export const books=[
   },
   {
     "id": "k-pop-chibi-coloring-book",
+    "hidden": true,
     "title": "K-Pop Chibi Coloring Book",
     "subtitle": "K-Pop Chibi Coloring Book",
     "category": "K-pop & Fantasy",
@@ -332,6 +333,7 @@ export const books=[
   },
   {
     "id": "k-pop-aesthetic-coloring-book",
+    "hidden": true,
     "title": "K-Pop Aesthetic Coloring Book",
     "subtitle": "The Ultimate Stan’s Creative Retreat",
     "category": "K-pop & Fantasy",
@@ -533,6 +535,8 @@ export const books=[
     }
   }
 ];
+// Keep unpublished titles in the catalog for later reactivation.
+export const visibleBooks=books.filter(book=>!book.hidden);
 export const pageNames={
   "cat": "A purr-fect afternoon",
   "bunny": "Some-bunny loves color",

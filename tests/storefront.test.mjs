@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {Window} from 'happy-dom';
 import {artwork,svgArt} from '../src/art.js';
-import {books} from '../src/data.js';
+import {books,visibleBooks} from '../src/data.js';
 
 test('catalog artwork has unique closed-region identifiers and usable SVG',()=>{
  for(const book of books){assert.equal(book.previewPages.length,6);for(const kind of book.previewPages){const {regions}=artwork(kind);assert.equal(new Set(regions.map(r=>r.id)).size,regions.length);assert.ok(regions.length>=6);assert.match(svgArt(kind,{interactive:true}),/data-region=/);}}
@@ -19,13 +19,21 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  await import('../src/app.js');
  const $=s=>document.querySelector(s);
  assert.match($('h1').textContent,/Unbox a world/);
- assert.equal(document.querySelectorAll('.shelf-card').length,books.length);
+ assert.equal(document.querySelectorAll('.shelf-card').length,visibleBooks.length);
  assert.equal(document.querySelectorAll('.fan-card').length,4);assert.equal(new Set(books.map(b=>b.id)).size,books.length);assert.ok(!document.querySelector('.book-track').innerHTML.includes('undefined'));
  location.hash='/books';window.dispatchEvent(new window.Event('hashchange'));
- assert.equal(document.querySelectorAll('.book-card').length,books.length);
- $('[data-filter="K-pop & Fantasy"]').click();assert.equal(document.querySelectorAll('.book-card').length,3);
+ assert.equal(document.querySelectorAll('.book-card').length,visibleBooks.length);
+ $('[data-filter="K-pop & Fantasy"]').click();assert.equal(document.querySelectorAll('.book-card').length,1);
  assert.match($('#book-grid').textContent,/K-Pop Warrior/);
- $('[data-filter="All books"]').click();
+ assert.ok(!$('#book-grid').textContent.includes('K-Pop Chibi Coloring Book'));
+ assert.ok(!$('#book-grid').textContent.includes('K-Pop Aesthetic Coloring Book'));
+  $('[data-filter="All books"]').click();
+ assert.equal(document.querySelectorAll('.book-card').length,8);
+ for(const id of ['k-pop-chibi-coloring-book','k-pop-aesthetic-coloring-book']){
+   assert.equal(document.querySelector('.book-title[href="#/books/'+id+'"]'),null);
+ }
+ assert.equal(document.querySelectorAll('[data-genre]').length,0,'Homepage genres are not rendered on catalog page');
+
  $('[data-preview="how-to-draw-everything-chibi"]').click();assert.equal($('#preview').open,true);
  $('[data-color="#91cde5"]').click();$('[data-region="head"]').dispatchEvent(new window.MouseEvent('click',{bubbles:true}));
  assert.equal($('[data-region="head"]').getAttribute('fill'),'#91cde5');
@@ -44,11 +52,37 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  $('#search-open').click();$('#search-input').value='Warrior';$('#search-input').dispatchEvent(new window.Event('input'));
  assert.equal(document.querySelectorAll('#search-results a').length,1);
  assert.match($('#search-results').textContent,/K-Pop Warrior/);
- $('#search-close').click();location.hash='/books/how-to-draw-everything-chibi';window.dispatchEvent(new window.Event('hashchange'));
+ $('#search-input').value='Aesthetic';$('#search-input').dispatchEvent(new window.Event('input'));
+ assert.equal(document.querySelectorAll('#search-results a').length,0);
+ $('#search-input').value='K-pop Chibi';$('#search-input').dispatchEvent(new window.Event('input'));
+ assert.equal(document.querySelectorAll('#search-results a').length,0);
+  $('#search-close').click();location.hash='/books/how-to-draw-everything-chibi';window.dispatchEvent(new window.Event('hashchange'));
  assert.match($('h1').textContent,/How to Draw Everything Chibi/);assert.equal(document.querySelectorAll('.inside-gallery button').length,6);
  assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,books.find(b=>b.id==='how-to-draw-everything-chibi').amazonUrl?1:0);
- for(const b of books){location.hash='/books/'+b.id;window.dispatchEvent(new window.Event('hashchange'));assert.ok(document.querySelector('.book-description').textContent.includes(b.closing));assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,b.amazonUrl?1:0);assert.ok(document.querySelector('.product-copy').textContent.includes(b.countLabel));assert.match(document.querySelector('.interior-notice').textContent,/not pages from this book/);assert.equal(document.querySelector('.product-cover img').getAttribute('width'),String(b.coverWidth));}
- const fashion=books.find(b=>b.id==='how-to-draw-fashion');
+ for(const b of visibleBooks){location.hash='/books/'+b.id;window.dispatchEvent(new window.Event('hashchange'));assert.ok(document.querySelector('.book-description').textContent.includes(b.closing));assert.equal(document.querySelectorAll('a[href^="https://www.amazon"]').length,b.amazonUrl?1:0);assert.ok(document.querySelector('.product-copy').textContent.includes(b.countLabel));assert.match(document.querySelector('.interior-notice').textContent,/not pages from this book/);assert.equal(document.querySelector('.product-cover img').getAttribute('width'),String(b.coverWidth));}
+ location.hash='/books/k-pop-chibi-coloring-book';window.dispatchEvent(new window.Event('hashchange'));
+ assert.match(document.querySelector('#main').textContent,/Book not found/);
+ location.hash='/books/k-pop-aesthetic-coloring-book';window.dispatchEvent(new window.Event('hashchange'));
+ assert.match(document.querySelector('#main').textContent,/Book not found/);
+ location.hash='';window.dispatchEvent(new window.Event('hashchange'));
+ assert.equal(document.querySelectorAll('.shelf-card').length,8);
+ assert.equal(document.querySelectorAll('[data-genre]').length,8);
+ const links=[...document.querySelectorAll('[data-genre]')];
+ for(const [id,label] of [
+ ['how-to-draw-everything-ocean','Ocean wonders'],
+ ['how-to-draw-fashion','Fashion & style'],
+ ['how-to-draw-kawaii','Kawaii cuties']
+ ]){
+   const link=links.find(node=>node.getAttribute('data-genre')===id);
+   assert.ok(link,'New genre link for '+id);
+   assert.ok(link.textContent.includes(label));
+   assert.equal(document.querySelectorAll('[data-genre-cover="'+id+'"]').length,4);
+ }
+ assert.equal(document.querySelectorAll('[data-genre-cover="k-pop-chibi-coloring-book"]').length,0);
+ assert.equal(document.querySelectorAll('[data-genre-cover="k-pop-aesthetic-coloring-book"]').length,0);
+ location.hash='/wishlist';window.dispatchEvent(new window.Event('hashchange'));
+ assert.equal(document.querySelectorAll('.book-card').length,1,'Only published wishlist items appear');
+  const fashion=books.find(b=>b.id==='how-to-draw-fashion');
  assert.ok(fashion,'Fashion book should be present');
  assert.equal(fashion.title,'How to Draw Fashion');
  assert.match(fashion.fullTitle,/50 Stylish Clothes, Shoes, Bags & Accessories/);
@@ -65,12 +99,18 @@ test('storefront: browse, paint, undo, compare, persist, search and save favorit
  assert.match(document.querySelector('.book-description').textContent,/finished color example/);
  assert.ok(document.querySelector('.fashion-spotlight'));
  assert.equal(document.querySelectorAll('.inside-gallery button').length,6);
- location.hash='/books/k-pop-chibi-coloring-book';window.dispatchEvent(new window.Event('hashchange'));
+ location.hash='/books/k-pop-warrior-coloring-book';window.dispatchEvent(new window.Event('hashchange'));
  assert.equal(document.querySelector('.fashion-spotlight'),null);
  location.hash='/books/how-to-draw-kawaii';window.dispatchEvent(new window.Event('hashchange'));
  const kawaii=books.find(b=>b.id==='how-to-draw-kawaii');
  assert.ok(kawaii,'Kawaii should be added as a separate title');
  assert.equal(books.length,10);
+ assert.equal(visibleBooks.length,8);
+ for(const id of ['k-pop-chibi-coloring-book','k-pop-aesthetic-coloring-book']){
+   assert.equal(books.find(b=>b.id===id).hidden,true,'Book is retained but unpublished');
+   assert.equal(visibleBooks.some(b=>b.id===id),false);
+ }
+
  assert.equal(books.at(-1).id,'how-to-draw-kawaii');
  assert.equal(kawaii.projectCount,50);assert.equal(kawaii.stepsPerProject,16);
  assert.equal(kawaii.previewPages.length,6);

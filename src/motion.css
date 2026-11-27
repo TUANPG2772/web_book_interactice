@@ -70,3 +70,8 @@ html:not(.motion-ready) .shelf-cta{opacity:1;transform:translate(-50%,0)}
  .unbox-finale{bottom:7%}
 }
 @media(prefers-reduced-motion:reduce){.parcel-shell{transform:translateZ(-420px) scale(.38);visibility:hidden}.parcel-book-0{transform:translateX(-72%) rotate(-14deg)}.parcel-book-1{transform:translateY(-22%)}.parcel-book-2{transform:translateX(72%) rotate(14deg)}}
+
+/* Eight published topics fit the Choose your happy section without excessive scrolling. */
+.genre-explorer .genre-list>a{font-size:clamp(2.3rem,5.15vw,5.15rem);padding:3px 0}
+@media(max-width:800px){.genre-explorer .genre-list>a{font-size:clamp(1.85rem,7vw,3.25rem)}}
+@media(max-width:450px){.genre-explorer .genre-list>a{font-size:clamp(1.55rem,7.7vw,2.35rem)}}
