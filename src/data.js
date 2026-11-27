@@ -223,6 +223,68 @@ export const books=[
     "featured": true
   },
   {
+    "id": "how-to-draw-fashion",
+    "title": "How to Draw Fashion",
+    "fullTitle": "How to Draw Fashion: 50 Stylish Clothes, Shoes, Bags & Accessories: Step-by-Step Drawing for Kids Ages 8–12 (How To Draw Everything)",
+    "subtitle": "50 Stylish Clothes, Shoes, Bags & Accessories",
+    "category": "How to Draw",
+    "author": "Studio HomePilato",
+    "format": "Paperback",
+    "series": "How To Draw Everything",
+    "audience": "Kids ages 8–12",
+    "ageRange": "8–12",
+    "countLabel": "50 fashion designs · 16 steps each",
+    "projectCount": 50,
+    "stepsPerProject": 16,
+    "color": "#f8aecb",
+    "ink": "#512f49",
+    "description": "Start with simple shapes. Create something stylish! Learn to draw 50 clothes, shoes, bags, and accessories in 16 guided steps.",
+    "paragraphs": [
+      "Start with simple shapes. Create something stylish!",
+      "Discover a fun way to draw fashion with 50 clothing and accessory designs—from pretty dresses and cozy jackets to sneakers, handbags, hats, and more.",
+      "How to Draw Fashion breaks every design into 16 illustrated steps, with short written instructions that explain what to draw next. Each lesson spans two pages and includes a finished color example for inspiration.",
+      "Designed for kids ages 8–12 and beginners, this book focuses on individual fashion items, so learners can explore clothing shapes without starting with figure drawing."
+    ],
+    "features": [
+      "50 fashion designs to explore.",
+      "16 guided, illustrated steps for every design.",
+      "Dresses, tops, jackets, skirts, trousers, shoes, bags, and accessories.",
+      "Clear instructions for drawing details such as collars, pockets, buttons, straps, and folds.",
+      "A finished color example for every lesson to inspire creative combinations.",
+      "Two-page lessons, with written guidance explaining what to draw next."
+    ],
+    "details": [
+      "Paperback · Studio HomePilato",
+      "Part of the How To Draw Everything series",
+      "50 individual fashion item designs",
+      "16 illustrated steps with written instructions per design",
+      "Two-page lessons with finished color examples",
+      "Recommended for ages 8–12"
+    ],
+    "perfectFor": [
+      "Kids ages 8–12 learning to sketch clothes and accessories",
+      "Beginners who want to draw fashion items without starting with figure drawing",
+      "Creative afternoons, drawing practice, and fashion-inspired gifts"
+    ],
+    "closing": "Grab a pencil, an eraser, and your favorite colored pencils—and start building your own collection of fashion drawings!",
+    "coverImage": "./assets/covers/how-to-draw-fashion.webp",
+    "coverWidth": 842,
+    "coverHeight": 842,
+    "price": null,
+    "amazonUrl": null,
+    "availability": "Amazon purchase link coming soon.",
+    "featured": true,
+    "previewPages": [
+      "flower",
+      "butterfly",
+      "bunny",
+      "cat",
+      "mushroom",
+      "bear"
+    ],
+    "fashionSpotlight": true
+  },
+  {
     "id": "k-pop-chibi-coloring-book",
     "title": "K-Pop Chibi Coloring Book",
     "subtitle": "K-Pop Chibi Coloring Book",
